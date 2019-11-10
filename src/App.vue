@@ -1,27 +1,57 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="cnCalculator">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4 col-xl-3">
+          <cn-menu-list
+            :objects="inventory.objects"
+          />
+        </div>
+        <cn-menu-item
+          v-if="$mq !== 'sm'"
+          rel="menu-item"
+          class="col-12 col-md-8 col-xl-9"
+          :item="activeItem"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import cnMenuItem from '@/components/MenuItem.vue'
+import cnMenuList from '@/components/MenuList.vue'
 
 export default {
-  name: 'app',
+  name: 'calculator',
+  props: ['inventory'],
   components: {
-    HelloWorld
+    cnMenuItem,
+    cnMenuList
+  },
+  data () {
+    return {
+      activeItem: {}
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
+<style lang="scss" scoped>
+/deep/ {
+  @import '~bootstrap/scss/bootstrap-grid';
+  *,
+  *::before,
+  *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+#cnCalculator {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

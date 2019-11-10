@@ -1,0 +1,56 @@
+{
+  "data": {
+    "objects": [
+      {
+        "title": "Woonkamer",
+        "products": [
+          {
+            "name": "2-zitsbank",
+            "attributes": {
+              "m3": 2
+            }
+          },
+          {
+            "name": "3-zitsbank",
+            "attributes": {
+              "m3": 2.5
+            }
+          },
+          {
+            "name": "4-zitshoekbank",
+            "attributes": {
+              "m3": 5
+            }
+          }
+        ]
+      },
+      {
+        "title": "Slaapkamer",
+        "products": [
+          {
+            "name": "1-persoonsbed",
+            "attributes": {
+              "m3": 1.5
+            }
+          },
+          {
+            "name": "2-persoonsbed",
+            "attributes": {
+              "m3": 2.5
+            }
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "city": "Bergen Op Zoom",
+        "url": "https://www.safestore-opslag.nl/vestigingen/bergen-nieuw/"
+      },
+      {
+        "city": "Goes",
+        "url": "https://www.safestore-opslag.nl/vestigingen/goes-nieuw"
+      }
+    ]
+  }
+}
