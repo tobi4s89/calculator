@@ -6,6 +6,7 @@
           <cn-menu-list
             rel="menu-list"
             :objects="objects"
+            :total="total"
           />
         </div>
         <cn-menu-item
@@ -35,15 +36,15 @@ export default {
   data () {
     return {
       activeItem: {},
-      objects: []
+      objects: [],
+      total: 0
     }
   },
   methods: {
-    calculate (obj, value) {
-      this.objects.map(item => {
-        if (item.id === obj.id) {
-          item.qty = value
-        }
+    calculate (items) {
+      this.total = 0
+      items.forEach(item => {
+        this.total += item.qty
       })
     }
   },

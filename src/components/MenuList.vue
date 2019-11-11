@@ -22,10 +22,18 @@
           v-show="object.id === activeItem.id"
           :key="object.id"
           :item="object"
-          @update="emitQty"
         ></cn-menu-item>
       </li>
     </ul>
+    <div class="menu-total d-flex">
+      <span class="menu-total__label">
+        Dit heeft nu nodig *
+      </span>
+      <span class="menu-total__qty ml-auto">
+        {{ total }} m3
+      </span>
+    </div>
+    <slot name="additional" />
   </div>
 </template>
 
@@ -43,6 +51,10 @@ export default {
       default () {
         return []
       }
+    },
+    total: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -51,14 +63,17 @@ export default {
     }
   },
   watch: {
-    activeItem: 'emitItem'
+    activeItem: 'emitItem',
+    objects: {
+      handler (value) {
+        this.$parent.calculate(value)
+      },
+      deep: true
+    }
   },
   methods: {
     emitItem () {
       this.$parent.activeItem = this.activeItem
-    },
-    emitQty (obj, value) {
-      this.$parent.calculate(obj, value)
     },
     handleClick (obj) {
       this.activeItem = obj
