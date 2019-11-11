@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-12 col-md-4 col-xl-3">
           <cn-menu-list
-            :objects="inventory.objects"
+            rel="menu-list"
+            :objects="objects"
           />
         </div>
         <cn-menu-item
@@ -21,18 +22,33 @@
 <script>
 import cnMenuItem from '@/components/MenuItem.vue'
 import cnMenuList from '@/components/MenuList.vue'
+import Utilities from '@/mixins/Utilities.vue'
 
 export default {
   name: 'calculator',
-  props: ['inventory'],
   components: {
     cnMenuItem,
     cnMenuList
   },
+  mixins: [Utilities],
+  props: ['inventory'],
   data () {
     return {
-      activeItem: {}
+      activeItem: {},
+      objects: []
     }
+  },
+  methods: {
+    calculate (obj, value) {
+      this.objects.map(item => {
+        if (item.id === obj.id) {
+          item.qty = value
+        }
+      })
+    }
+  },
+  beforeMount () {
+    this.objects = this.parseObjects(this.inventory.objects)
   }
 }
 </script>
