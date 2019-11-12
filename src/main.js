@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueMq from 'vue-mq'
+import vSelect from 'vue-select'
 import App from '@/App.vue'
 import Dummy from '@/assets/data.json'
+import 'vue-select/dist/vue-select.css'
 
 Vue.config.productionTip = false
 
@@ -14,6 +16,8 @@ Vue.use(VueMq, {
     xl: Infinity
   }
 })
+
+Vue.component('v-select', vSelect)
 
 /* eslint-disable no-new */
 new Vue({

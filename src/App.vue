@@ -2,17 +2,23 @@
   <div id="cnCalculator">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <cn-menu-list
             rel="menu-list"
             :objects="objects"
             :total="total"
-          />
+          >
+            <cn-city-selector
+              slot="additional"
+              :content="content"
+              :locations="locations"
+            />
+          </cn-menu-list>
         </div>
         <cn-menu-item
           v-if="$mq !== 'sm'"
           rel="menu-item"
-          class="col-12 col-md-8"
+          class="col-12 col-md-6 col-lg-8"
           :item="activeItem"
         />
       </div>
@@ -21,6 +27,7 @@
 </template>
 
 <script>
+import cnCitySelector from '@/components/CitySelector.vue'
 import cnMenuItem from '@/components/MenuItem.vue'
 import cnMenuList from '@/components/MenuList.vue'
 import Utilities from '@/mixins/Utilities.vue'
@@ -28,6 +35,7 @@ import Utilities from '@/mixins/Utilities.vue'
 export default {
   name: 'calculator',
   components: {
+    cnCitySelector,
     cnMenuItem,
     cnMenuList
   },
@@ -36,6 +44,8 @@ export default {
   data () {
     return {
       activeItem: {},
+      content: '',
+      locations: [],
       objects: [],
       total: 0
     }
@@ -49,7 +59,9 @@ export default {
     }
   },
   beforeMount () {
+    this.content = this.inventory.citySelectText
     this.objects = this.parseObjects(this.inventory.objects)
+    this.locations = this.inventory.locations
   }
 }
 </script>

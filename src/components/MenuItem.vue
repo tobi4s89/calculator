@@ -19,7 +19,7 @@
           :key="index"
           :class="[
             { even: isEven(item.products.length) },
-            'col-12 col-md-6 list-style-none'
+            'col-12 col-lg-6 list-style-none'
           ]"
         >
           <div class="inner-item d-flex align-items-center">
@@ -138,7 +138,6 @@ input[type=number]{
 }
 .menu {
   &-item {
-
     @media only screen and (min-width: 768px) {
       border: 1px solid $primary-color;
     }
@@ -168,7 +167,7 @@ input[type=number]{
           }
         }
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 992px) {
           &:nth-child(even) {
             padding-left: 8px;
           }

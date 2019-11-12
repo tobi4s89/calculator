@@ -30,7 +30,7 @@
     </ul>
     <div class="menu-total d-flex p-3">
       <span class="menu-total__label">
-        Dit heeft nu nodig <i>*</i>
+        Dit heeft u nodig <i>*</i>
       </span>
       <span class="menu-total__qty ml-auto">
         <strong>{{ total }}</strong> m3
