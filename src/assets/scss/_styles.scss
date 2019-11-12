@@ -1,0 +1,18 @@
+// Variables
+$black: #000000;
+$danger-color: #FF0000;
+$light-grey: #efefef;
+$primary-color: #0b5289;
+$white: #FFFFFF;
+
+// Defaults
+.menu-title {
+  text-align: center;
+  font-size: 1.3rem;
+  color: $primary-color;
+  border-bottom: 1px solid $primary-color;
+}
+
+.list-style-none {
+  list-style: none !important;
+}

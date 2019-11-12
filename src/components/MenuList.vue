@@ -1,36 +1,39 @@
 <template>
   <div class="menu">
-    <h2 class="menu-title">
+    <h2 class="menu-title m-0 mb-2 pb-3">
       {{ $mq === 'sm' ? 'Selecteer kamer & objecten' : 'Selecteer een kamer' }}
     </h2>
-    <ul class="menu-list">
+    <ul class="menu-list test m-0 mb-3 p-0">
       <li
         v-for="object in objects"
         :key="object.id"
         :class="[
-          'menu-list__item p-3',
+          'menu-list__item list-style-none m-0 mb-2',
           { active: object.id === activeItem.id }
         ]"
         @click="handleClick(object)"
       >
-        <div class="category d-flex">
+        <div class="category p-3 d-flex">
           <span>{{ object.title }}</span>
-          <span class="ml-auto">{{ object.qty }} m3</span>
+          <span class="ml-auto">
+            <strong>{{ object.qty }}</strong> m3
+          </span>
         </div>
         <cn-menu-item
           v-if="$mq === 'sm'"
           v-show="object.id === activeItem.id"
+          :has-title="false"
           :key="object.id"
           :item="object"
         ></cn-menu-item>
       </li>
     </ul>
-    <div class="menu-total d-flex">
+    <div class="menu-total d-flex p-3">
       <span class="menu-total__label">
-        Dit heeft nu nodig *
+        Dit heeft nu nodig <i>*</i>
       </span>
       <span class="menu-total__qty ml-auto">
-        {{ total }} m3
+        <strong>{{ total }}</strong> m3
       </span>
     </div>
     <slot name="additional" />
@@ -86,3 +89,39 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.menu {
+  &-list {
+    &__item {
+      .category {
+        cursor: pointer;
+        background-color: $light-grey;
+        color: $primary-color;
+
+        > span:first-of-type {
+          font-size: 1rem;
+          text-transform: uppercase;
+        }
+      }
+
+      &.active {
+        .category {
+          background-color: $primary-color;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &-total {
+    color: $danger-color;
+
+    &__label {
+      i {
+        color: $black;
+      }
+    }
+  }
+}
+</style>

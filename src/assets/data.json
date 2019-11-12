@@ -17,6 +17,12 @@
             }
           },
           {
+            "name": "4-zitsbank",
+            "attributes": {
+              "m3": 3
+            }
+          },
+          {
             "name": "4-zitshoekbank",
             "attributes": {
               "m3": 5

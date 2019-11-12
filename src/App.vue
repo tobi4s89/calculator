@@ -2,7 +2,7 @@
   <div id="cnCalculator">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-4 col-xl-3">
+        <div class="col-12 col-md-4">
           <cn-menu-list
             rel="menu-list"
             :objects="objects"
@@ -12,7 +12,7 @@
         <cn-menu-item
           v-if="$mq !== 'sm'"
           rel="menu-item"
-          class="col-12 col-md-8 col-xl-9"
+          class="col-12 col-md-8"
           :item="activeItem"
         />
       </div>
@@ -55,6 +55,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#cnCalculator {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /deep/ {
   @import '~bootstrap/scss/bootstrap-grid';
   *,
@@ -63,13 +69,5 @@ export default {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-}
-
-#cnCalculator {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
