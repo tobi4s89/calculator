@@ -50,9 +50,6 @@ export default {
       total: 0
     }
   },
-  watch: {
-    inventory: 'setData'
-  },
   methods: {
     calculate (items) {
       this.total = 0
@@ -62,29 +59,18 @@ export default {
     },
     setData () {
       if (this.inventory.length) {
-        this.content = this.inventory.citySelectText
-        this.objects = this.parseObjects(this.inventory.objects)
-        this.locations = this.inventory.locations
+
       }
     }
+  },
+  mounted () {
+    this.content = this.inventory.citySelectText
+    this.objects = this.parseObjects(this.inventory.objects)
+    this.locations = this.inventory.locations
   }
 }
 </script>
 
-<style lang="scss" scoped>
-#cnCalculator {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/deep/ {
-  @import '~bootstrap/scss/bootstrap-grid';
-  *,
-  *::before,
-  *::after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-}
+<style lang="scss" module>
+@import './assets/scss/styles';
 </style>

@@ -89,39 +89,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.menu {
-  &-list {
-    &__item {
-      .category {
-        cursor: pointer;
-        background-color: $light-grey;
-        color: $primary-color;
-
-        > span:first-of-type {
-          font-size: 1rem;
-          text-transform: uppercase;
-        }
-      }
-
-      &.active {
-        .category {
-          background-color: $primary-color;
-          color: $white;
-        }
-      }
-    }
-  }
-
-  &-total {
-    color: $danger-color;
-
-    &__label {
-      i {
-        color: $black;
-      }
-    }
-  }
-}
-</style>
