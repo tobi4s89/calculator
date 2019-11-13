@@ -29,7 +29,7 @@ new Vue({
   },
   beforeMount () {
     const inventory = this.$el.attributes['data-inventory']
-    if (inventory !== undefined) this.inventory = JSON.parse(inventory.value)
+    if (inventory !== undefined) this.inventory = JSON.parse(inventory.value).data
   },
   render (createElement) {
     const self = this
