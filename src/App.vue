@@ -4,16 +4,16 @@
       <div :class="setClass('row', $style)">
         <div :class="setClass('col-12 col-md-6 col-lg-4', $style)">
           <cn-menu-list
-              rel="menu-list"
-              :objects="objects"
-              :styles="$style"
-              :total="total"
+            rel="menu-list"
+            :objects="objects"
+            :styles="$style"
+            :total="total"
           >
             <cn-city-selector
-                slot="additional"
-                :content="content"
-                :locations="locations"
-                :styles="$style"
+              slot="additional"
+              :content="content"
+              :locations="locations"
+              :styles="$style"
             />
           </cn-menu-list>
         </div>

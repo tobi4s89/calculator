@@ -34,6 +34,7 @@
           :has-title="false"
           :key="object.id"
           :item="object"
+          :styles="styles"
         ></cn-menu-item>
       </li>
     </ul>
