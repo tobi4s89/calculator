@@ -74,6 +74,10 @@ export default {
 </style>
 
 <style lang="scss">
+html {
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
 #cnCalculator {
   *,
   *::before,
