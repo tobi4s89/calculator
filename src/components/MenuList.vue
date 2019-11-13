@@ -1,21 +1,30 @@
 <template>
   <div class="menu">
-    <h2 class="menu-title m-0 mb-2 pb-3">
+    <h2
+      :class="setClass('m-0 mb-2 pb-3', styles)"
+      class="menu-title"
+    >
       {{ $mq === 'sm' ? 'Selecteer kamer & objecten' : 'Selecteer een kamer' }}
     </h2>
-    <ul class="menu-list test m-0 mb-3 p-0">
+    <ul
+      :class="setClass('m-0 mb-3 p-0', styles)"
+      class="menu-list"
+    >
       <li
         v-for="object in objects"
         :key="object.id"
         :class="[
-          'menu-list__item list-style-none m-0 mb-2',
+          'menu-list__item list-style-none',
           { active: object.id === activeItem.id }
         ]"
-        @click="handleClick(object)"
+        @click="activate(object)"
       >
-        <div class="category p-3 d-flex">
+        <div
+          :class="setClass('p-3 d-flex', styles)"
+          class="category"
+        >
           <span>{{ object.title }}</span>
-          <span class="ml-auto">
+          <span :class="setClass('ml-auto', styles)">
             <strong>{{ object.qty }}</strong> m3
           </span>
         </div>
@@ -28,11 +37,17 @@
         ></cn-menu-item>
       </li>
     </ul>
-    <div class="menu-total d-flex p-3">
+    <div
+      :class="setClass('d-flex p-3', styles)"
+      class="menu-total"
+    >
       <span class="menu-total__label">
         Dit heeft u nodig <i>*</i>
       </span>
-      <span class="menu-total__qty ml-auto">
+      <span
+        :class="setClass('ml-auto', styles)"
+        class="menu-total__qty"
+      >
         <strong>{{ total }}</strong> m3
       </span>
     </div>
@@ -42,17 +57,25 @@
 
 <script>
 import cnMenuItem from '@/components/MenuItem.vue'
+import Utilities from '@/mixins/Utilities.vue'
 
 export default {
   name: 'cn-menu-list',
   components: {
     cnMenuItem
   },
+  mixins: [Utilities],
   props: {
     objects: {
       type: Array,
       default () {
         return []
+      }
+    },
+    styles: {
+      type: Object,
+      default () {
+        return {}
       }
     },
     total: {
@@ -69,17 +92,20 @@ export default {
     activeItem: 'emitItem',
     objects: {
       handler (value) {
+        if (JSON.stringify(this.activeItem) === '{}') {
+          this.activate(value[0])
+        }
         this.$parent.calculate(value)
       },
       deep: true
     }
   },
   methods: {
+    activate (obj) {
+      this.activeItem = obj
+    },
     emitItem () {
       this.$parent.activeItem = this.activeItem
-    },
-    handleClick (obj) {
-      this.activeItem = obj
     }
   },
   mounted () {

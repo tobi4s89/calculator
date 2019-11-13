@@ -2,31 +2,43 @@
   <div>
     <h2
       v-if="$mq !== 'sm'"
-      class="menu-title m-0 mb-2 pb-3"
+      :class="setClass('m-0 mb-2 pb-3', styles)"
+      class="menu-title"
     >
       Selecteer objecten
     </h2>
     <div class="menu-item">
       <h3
         v-if="hasTitle"
-        class="menu-item__title m-0 p-3"
+        :class="setClass('m-0 p-3', styles)"
+        class="menu-item__title"
       >
         {{ item.title }}
       </h3>
-      <ul class="menu-item__products row m-0 p-0">
+      <ul
+        :class="setClass('row m-0 p-0', styles)"
+        class="menu-item__products"
+      >
         <li
           v-for="(product, index) in item.products"
           :key="index"
           :class="[
+            setClass('col-12 col-lg-6', styles),
             { even: isEven(item.products.length) },
-            'col-12 col-lg-6 list-style-none'
+            'list-style-none'
           ]"
         >
-          <div class="inner-item d-flex align-items-center">
-            <span class="pl-3">
+          <div
+            :class="setClass('d-flex align-items-center', styles)"
+            class="inner-item"
+          >
+            <span :class="setClass('pl-3', styles)">
               {{ product.name }}
             </span>
-            <div class="qty-controller d-flex justify-content-center ml-auto">
+            <div
+              :class="setClass('d-flex justify-content-center ml-auto', styles)"
+              class="qty-controller"
+            >
               <span
                 type="button"
                 class="qty-control__down arrow"
@@ -59,14 +71,23 @@
 </template>
 
 <script>
+import Utilities from '@/mixins/Utilities.vue'
+
 export default {
   name: 'cn-menu-item',
+  mixins: [Utilities],
   props: {
     hasTitle: {
       type: Boolean,
       default: true
     },
     item: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    styles: {
       type: Object,
       default () {
         return {}

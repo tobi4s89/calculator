@@ -18,6 +18,16 @@ export default {
 
       return items
     },
+    setClass (classString, styles) {
+      let classes = []
+      let classArray = classString.split(' ')
+
+      classArray.forEach((className) => {
+        classes.push(styles[className])
+      })
+
+      return classes
+    },
     toKebabCase (str) {
       return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase()
     }

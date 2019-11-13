@@ -1,30 +1,3 @@
-@import '~bootstrap/scss/bootstrap-grid';
-
-// Variables
-$black: #000000;
-$danger-color: #FF0000;
-$light-grey: #efefef;
-$primary-color: #0b5289;
-$white: #FFFFFF;
-
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.menu-title {
-  text-align: center;
-  font-size: 1.3rem;
-  color: $primary-color;
-  border-bottom: 1px solid $primary-color;
-}
-
-.list-style-none {
-  list-style: none !important;
-}
-
 // MenuList
 .menu {
   &-list {
@@ -147,37 +120,6 @@ input[type=number]{
 }
 
 // CitySelector
-.v-select {
-  cursor: pointer !important;
-}
-
-.vs__dropdown-toggle {
-  border-radius: 0;
-  border-color: $primary-color;
-  background: $light-grey;
-  cursor: pointer !important;
-  padding: 5px 0 10px 5px;
-
-  .vs__search,
-  .vs__search:focus {
-    cursor: pointer !important;
-  }
-
-  .vs__actions {
-    padding: 4px 16px 0 3px;
-  }
-
-  .vs__selected {
-    text-transform: uppercase;
-    color: $primary-color;
-    font-size: .875rem;
-  }
-}
-
-.vs__dropdown-option--highlight{
-  background: $primary-color;
-}
-
 .selector {
   &-content {
     text-align: center;

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueMq from 'vue-mq'
 import vSelect from 'vue-select'
 import App from '@/App.vue'
-import 'vue-select/dist/vue-select.css'
 
 Vue.config.productionTip = false
 

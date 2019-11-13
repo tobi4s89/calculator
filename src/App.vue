@@ -1,25 +1,28 @@
 <template>
   <div id="cnCalculator">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4">
+    <div :class="setClass('container', $style)">
+      <div :class="setClass('row', $style)">
+        <div :class="setClass('col-12 col-md-6 col-lg-4', $style)">
           <cn-menu-list
-            rel="menu-list"
-            :objects="objects"
-            :total="total"
+              rel="menu-list"
+              :objects="objects"
+              :styles="$style"
+              :total="total"
           >
             <cn-city-selector
-              slot="additional"
-              :content="content"
-              :locations="locations"
+                slot="additional"
+                :content="content"
+                :locations="locations"
+                :styles="$style"
             />
           </cn-menu-list>
         </div>
         <cn-menu-item
-          v-if="$mq !== 'sm'"
-          rel="menu-item"
-          class="col-12 col-md-6 col-lg-8"
-          :item="activeItem"
+            v-if="$mq !== 'sm'"
+            rel="menu-item"
+            :class="setClass('col-12 col-md-6 col-lg-8', $style)"
+            :item="activeItem"
+            :styles="$style"
         />
       </div>
     </div>
@@ -56,11 +59,6 @@ export default {
       items.forEach(item => {
         this.total += item.qty
       })
-    },
-    setData () {
-      if (this.inventory.length) {
-
-      }
     }
   },
   mounted () {
@@ -72,5 +70,33 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import './assets/scss/styles';
+  @import '~bootstrap/scss/bootstrap-grid';
+</style>
+
+<style lang="scss">
+#cnCalculator {
+  *,
+  *::before,
+  *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .menu-title {
+    text-align: center;
+    font-size: 1.3rem;
+    color: $primary-color;
+    border-bottom: 1px solid $primary-color;
+  }
+
+  .list-style-none {
+    list-style: none !important;
+  }
+
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @import './assets/scss/styles.scss';
+}
 </style>
