@@ -25,7 +25,7 @@
         >
           <span>{{ object.title }}</span>
           <span :class="setClass('ml-auto', styles)">
-            <strong>{{ object.qty }}</strong> m3
+            <strong>{{ Math.round(object.qty * 100) / 100 }}</strong> m3
           </span>
         </div>
         <cn-menu-item
@@ -49,7 +49,7 @@
         :class="setClass('ml-auto', styles)"
         class="menu-total__qty"
       >
-        <strong>{{ total }}</strong> m3
+        <strong>{{ Math.round(total * 100) / 100 }}</strong> m3
       </span>
     </div>
     <slot name="additional" />

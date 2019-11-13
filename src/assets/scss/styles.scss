@@ -37,6 +37,9 @@
 input[type=number],
 input[type=number]{
   text-align: center;
+  height: auto;
+  width: auto;
+  margin: 0;
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -112,6 +115,7 @@ input[type=number]{
         cursor: pointer;
         padding: 2px 8px;
         min-width: 25px;
+        line-height: 25px;
         background-color: $light-grey;
         font-size: 1rem;
       }
