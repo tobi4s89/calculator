@@ -50,18 +50,23 @@ export default {
       total: 0
     }
   },
+  watch: {
+    inventory: 'setData'
+  },
   methods: {
     calculate (items) {
       this.total = 0
       items.forEach(item => {
         this.total += item.qty
       })
+    },
+    setData () {
+      if (this.inventory.length) {
+        this.content = this.inventory.citySelectText
+        this.objects = this.parseObjects(this.inventory.objects)
+        this.locations = this.inventory.locations
+      }
     }
-  },
-  beforeMount () {
-    this.content = this.inventory.citySelectText
-    this.objects = this.parseObjects(this.inventory.objects)
-    this.locations = this.inventory.locations
   }
 }
 </script>
