@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueMq from 'vue-mq'
 import vSelect from 'vue-select'
 import App from '@/App.vue'
-import Dummy from '@/assets/data.json'
 import 'vue-select/dist/vue-select.css'
 
 Vue.config.productionTip = false
@@ -29,9 +28,8 @@ new Vue({
     }
   },
   beforeMount () {
-    // const inventory = this.$el.attributes['data-inventory']
-    // if (inventory !== undefined) this.inventory = JSON.parse(inventory.value)
-    this.inventory = Dummy.data
+    const inventory = this.$el.attributes['data-inventory']
+    if (inventory !== undefined) this.inventory = JSON.parse(inventory.value)
   },
   render (createElement) {
     const self = this
