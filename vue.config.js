@@ -13,7 +13,7 @@ module.exports = {
     loaderOptions: {
       css: {
         modules: {
-          localIdentName: 'cnCalculator_[local]_[hash:base64:8]'
+          localIdentName: 'cnc_[local]'
         }
       },
       sass: {

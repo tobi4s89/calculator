@@ -1,6 +1,6 @@
 <template>
   <div id="cnCalculator">
-    <div :class="setClass('container', $style)">
+    <div :class="setClass('container px-0', $style)">
       <div :class="setClass('row', $style)">
         <div :class="setClass('col-12 col-md-6 col-lg-4', $style)">
           <cn-menu-list
@@ -91,6 +91,12 @@ html {
     font-size: 1.3rem;
     color: $primary-color;
     border-bottom: 1px solid $primary-color;
+
+    @media only screen and (max-width: 767px) {
+      padding-top: 15px;
+      color: $white;
+      background-color: $primary-color;
+    }
   }
 
   .list-style-none {

@@ -20,13 +20,16 @@
         @click="activate(object)"
       >
         <div
-          :class="setClass('p-3 d-flex', styles)"
+          :class="setClass('mb-2 p-3 d-flex justify-content-right align-items-center', styles)"
           class="category"
         >
-          <span>{{ object.title }}</span>
-          <span :class="setClass('ml-auto', styles)">
+          <span :class="setClass('mr-auto', styles)">{{ object.title }}</span>
+          <span>
             <strong>{{ Math.round(object.qty * 100) / 100 }}</strong> m3
           </span>
+          <span
+            :class="setClass('d-md-none ml-3', styles)"
+            class="toggle">{{ object.id === activeItem.id ? '-' : '+' }}</span>
         </div>
         <cn-menu-item
           v-if="$mq === 'sm'"
@@ -37,21 +40,22 @@
           :styles="styles"
         ></cn-menu-item>
       </li>
-    </ul>
-    <div
-      :class="setClass('d-flex p-3', styles)"
-      class="menu-total"
-    >
+      <div
+        :class="setClass('d-flex p-3 my-3', styles)"
+        class="menu-total"
+      >
       <span class="menu-total__label">
         Dit heeft u nodig <i>*</i>
       </span>
-      <span
-        :class="setClass('ml-auto', styles)"
-        class="menu-total__qty"
-      >
+        <span
+          :class="setClass('ml-auto', styles)"
+          class="menu-total__qty"
+        >
         <strong>{{ Math.round(total * 100) / 100 }}</strong> m3
       </span>
-    </div>
+      </div>
+    </ul>
+
     <slot name="additional" />
   </div>
 </template>

@@ -10,6 +10,14 @@
         > span:first-of-type {
           font-size: 1rem;
           text-transform: uppercase;
+
+          @media only screen and (max-width: 767px) {
+            font-size: .875rem;
+          }
+        }
+
+        .toggle {
+          font-size: 20px;
         }
       }
 
@@ -19,6 +27,10 @@
           color: $white;
         }
       }
+    }
+
+    @media only screen and (max-width: 767px) {
+      border-bottom: 1px solid $primary-color;
     }
   }
 
@@ -40,6 +52,9 @@ input[type=number]{
   height: auto;
   width: auto;
   margin: 0;
+  box-shadow: none;
+  padding: 0;
+  border: 0;
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -118,6 +133,13 @@ input[type=number]{
         line-height: 25px;
         background-color: $light-grey;
         font-size: 1rem;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      .close {
+        text-align: right;
+        color: $secondary-color;
       }
     }
   }

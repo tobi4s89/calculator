@@ -32,7 +32,7 @@
             :class="setClass('d-flex align-items-center', styles)"
             class="inner-item"
           >
-            <span :class="setClass('pl-3', styles)">
+            <span :class="setClass('pl-1 pl-md-3', styles)">
               {{ product.name }}
             </span>
             <div
@@ -66,6 +66,13 @@
           </div>
         </li>
       </ul>
+      <div
+        class="close"
+        :class="setClass('d-md-none my-3 pr-3', styles)"
+        @click="closeThis"
+      >
+        <i>sluit deze kamer X</i>
+      </div>
     </div>
   </div>
 </template>
@@ -113,6 +120,11 @@ export default {
     }
   },
   methods: {
+    closeThis () {
+      setTimeout(() => {
+        this.$parent.activeItem = {}
+      }, 50)
+    },
     isEven (n) {
       return n % 2 === 0
     },
