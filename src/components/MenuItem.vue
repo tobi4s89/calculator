@@ -67,7 +67,7 @@
         </li>
       </ul>
       <div
-        class="close"
+        class="close-item"
         :class="setClass('d-md-none my-3 pr-3', styles)"
         @click="closeThis"
       >

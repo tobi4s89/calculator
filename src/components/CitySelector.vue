@@ -23,6 +23,7 @@
     ></v-select>
     <a
       :href="selected.url"
+      :target="selected.city !== 'Kies vestiging' ? '_blank' : ''"
       class="selector-btn"
       type="button"
       @click="validate"
